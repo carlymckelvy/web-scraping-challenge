@@ -10,18 +10,18 @@ def init_browser():
     executable_path = {"executable_path":"C:\\Users\\carly\\Documents\\bootcamp\\Chrome_Driver\\chromedriver"}
     return Browser("chrome", **executable_path, headless=False)
 
-def scrape():
-    browser = init_browser
+def scrape_info():
+    browser = init_browser()
 
     # URL of page to be scraped
     url = 'https://mars.nasa.gov/news/'
     browser.visit(url)
-
+    time.sleep(1)
     html = browser.html
     soup = BeautifulSoup(html, "html.parser")
 
     #pause
-    time.sleep(1)
+   
 
     #latest news
     results = soup.find('div', class_="list_text")
@@ -37,10 +37,10 @@ def scrape():
 
     time.sleep(1)
     browser.find_by_id('full_image').click()
-
+    time.sleep(1)
     html = browser.html
     soup = BeautifulSoup(html, "html.parser")
-    time.sleep(1)
+    
     featured_image_url = soup.find("img", class_= "fancybox-image").get("src")
     featured_image_url
 
@@ -93,8 +93,10 @@ def scrape():
     }
 
     browser.quit()
-
+   
     return mars_data
+
+    print(mars_data)
 
 
 
