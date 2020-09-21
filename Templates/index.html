@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mars Data</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+      <div class="jumbotron text-center">
+        <h1>Mission to Mars</h1>
+        <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+      </div>
+    </div>
+    {% if planet %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Latest Mars News</h3>
+                <h2>{{ planet.results2 }}</h2>
+                <p>{{ planet.results3 }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <h3>Featured Mars Image</h3>
+                <img src="{{ planet.featured_image_url }}" alt="Space">
+            </div>
+            <div class="col-md-4">
+                <h2>Mars Facts</h2>
+                <table class="table">
+                    <table>{{planet.html_table}}</table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="text-center">
+                    Mars Hemishperes
+                </h3>
+            </div>
+        </div>    
+        <div class="row">
+            <div class="col-md-6">
+                <img alt="Bootstrap Image Preview" src="https://www.layoutit.com/img/sports-q-c-140-140-3.jpg" />
+                <h3>
+                    h3. Lorem ipsum dolor sit amet.
+                </h3>
+            </div>
+            <div class="col-md-6">
+                <img alt="Bootstrap Image Preview" src="https://www.layoutit.com/img/sports-q-c-140-140-3.jpg" />
+                <h3>
+                    h3. Lorem ipsum dolor sit amet.
+                </h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <img alt="Bootstrap Image Preview" src="https://www.layoutit.com/img/sports-q-c-140-140-3.jpg" />
+                <h3>
+                    h3. Lorem ipsum dolor sit amet.
+                </h3>
+            </div>
+            <div class="col-md-6">
+                <img alt="Bootstrap Image Preview" src="https://www.layoutit.com/img/sports-q-c-140-140-3.jpg" />
+                <h3>
+                    h3. Lorem ipsum dolor sit amet.
+                </h3>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+ 
+  </body>
+  
+  </html>
+  
+
+  
+			
+	
+			
+	
+			
+		
+			
