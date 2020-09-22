@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible">
+  <title>Mars Data</title>
+<!-- CSS only -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+<!-- JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script></head>
+
+<body>
+<div class="container-fluid">
+    <div class="jumbotron text-center">
+    <h1>Mission to Mars</h1>
+    <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+    </div>
+</div>
+<br>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h2><i>Latest Mars News</i></h2>
+            <h3>{{ mars.news_title }}</h3>
+            <p>{{ mars.news_text }}</p>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-8">
+            <h3><i>Featured Mars Image</i></h3>
+            <img src="{{ mars.featured_image }}" alt="Space">
+        </div>
+        <div class="col-md-4">
+            <h2><i>Mars Facts</i></h2>
+            <table class="table">
+                <table>{{mars.mars_facts|safe}}</table>
+        </div>
+    </div>
+</div>
+<br>           
+<div class="container-fluid">
+    <div class="row">
+        <h1 class="text-center"><i>Hemispheres of Mars</i></h1>
+        <br>
+    </div>
+</div>
+<div class="container-fluid">      
+    <div class="row">
+        <div class="col-md-6" 
+            {% for object in mars.hemisphere_images %}
+                <div class="col-md-6 text-center">
+                    <div class="card text-center">
+                    <img class="card-img-top text-center" src="{{ object.image_url }}">
+                        <div class="card-body text-center">
+                            <h4 class="card-title text-center">{{ object.title }}</h4>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+</body>
+</html>
+  
+
+  
+			
+	
+			
+	
+			
+		
+			

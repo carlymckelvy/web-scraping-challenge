@@ -78,7 +78,7 @@ def scrape_info():
         browser.visit(link) 
         html = browser.html
         soup = BeautifulSoup(html, "html.parser")
-        image = soup.find("div", class_ = "content")
+        image = soup.find("div", class_ = "downloads")
         img_url = image.find("a").get("href")
         
         hemisphere_image_urls.append({"title": title_text, "image_url": img_url})
@@ -94,10 +94,10 @@ def scrape_info():
     }
 
     browser.quit()
-   
+    print(mars_data)
     return mars_data
 
-    #print(mars_data)
+    
 
 
 
