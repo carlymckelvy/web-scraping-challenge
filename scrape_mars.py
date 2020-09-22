@@ -16,11 +16,11 @@ def scrape_info():
     # URL of page to be scraped
     url = 'https://mars.nasa.gov/news/'
     browser.visit(url)
+    
     time.sleep(1)
+    
     html = browser.html
     soup = BeautifulSoup(html, "html.parser")
-
-    #pause
    
 
     #latest news
@@ -33,7 +33,8 @@ def scrape_info():
     results3 = results.find('div', class_="article_teaser_body").text
 
     # JPL Mars Space Images - Featured Image
-    browser.visit("https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars")
+    url =  "https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars"
+    browser.visit(url)
 
     time.sleep(1)
     browser.find_by_id('full_image').click()
@@ -41,8 +42,8 @@ def scrape_info():
     html = browser.html
     soup = BeautifulSoup(html, "html.parser")
     
-    featured_image_url = soup.find("img", class_= "fancybox-image").get("src")
-    featured_image_url
+    image_url = soup.find("img", class_= "fancybox-image").get("src")
+    featured_image_url = url.replace("spaceimages/?search=&category=Mars", image_url)
 
 
     #Visit the Mars Facts webpage and use Pandas to scrape the table containing facts about the planet including Diameter, 
@@ -96,7 +97,7 @@ def scrape_info():
    
     return mars_data
 
-    print(mars_data)
+    #print(mars_data)
 
 
 
